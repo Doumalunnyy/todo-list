@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f6f2">
+  <meta name="description" content="Простой список задач. Записывайте дела, отмечайте выполненное и освобождайте голову.">
+  <title>По порядку — список задач</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="По порядку — главная">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        По порядку
+      </a>
+      <span class="header-note">Одно дело за другим</span>
+    </header>
+
+    <main id="main">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">ДЛЯ ДЕЛ, БОЛЬШИХ И МАЛЕНЬКИХ</p>
+        <h1 id="page-title">Мои задачи<span class="accent">.</span></h1>
+        <p class="intro-copy">Запишите, чтобы не держать всё в голове.</p>
+      </section>
+
+      <form id="task-form" class="task-form" novalidate>
+        <label for="task-input">Что нужно сделать?</label>
+        <div class="input-row">
+          <input id="task-input" name="task" type="text" placeholder="Например, отправить проект" autocomplete="off" aria-describedby="input-hint input-error">
+          <button class="add-button" type="submit"><span aria-hidden="true">+</span> Добавить</button>
+        </div>
+        <p id="input-hint" class="input-hint">Добавьте задачу кнопкой или нажмите Enter</p>
+        <p id="input-error" class="input-error" role="alert" hidden></p>
+      </form>
+
+      <section class="tasks-section" aria-labelledby="list-title">
+        <div class="list-heading">
+          <h2 id="list-title">Список задач <span id="total-count" class="count">0</span></h2>
+          <span id="progress-text" class="progress-text">Начните с одного дела</span>
+        </div>
+        <div id="progress-track" class="progress-track" hidden><div id="progress-fill"></div></div>
+        <ul id="task-list" class="task-list"></ul>
+        <div id="empty-state" class="empty-state">
+          <svg class="empty-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="14" y="10" width="36" height="45" rx="5" stroke="currentColor" stroke-width="1.5"/><path d="M24 8h16v7H24z" fill="#f7f6f2" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="m23 29 3 3 5-6M35 29h7M23 41h19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>Пока всё спокойно</h3>
+          <p>Добавьте первое дело.<br>Остальное — по порядку.</p>
+        </div>
+      </section>
+      <p id="storage-warning" class="storage-warning" role="alert" hidden></p>
+      <p id="announcer" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      <noscript><p class="storage-warning">Для работы списка задач включите JavaScript в браузере.</p></noscript>
+    </main>
+
+    <footer class="site-footer">
+      <span class="storage-note"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><rect x="3.5" y="7" width="9" height="6.5" rx="1.5" stroke="currentColor"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" stroke="currentColor"/></svg><span id="storage-note">Задачи сохраняются в этом браузере</span></span>
+      <span class="footer-sign">Маленькие шаги тоже считаются.</span>
+    </footer>
+  </div>
+</body>
+</html>
